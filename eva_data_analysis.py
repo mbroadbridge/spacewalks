@@ -4,7 +4,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# https://data.nasa.gov/resource/eva.json (with modifications)
+# Data source is https://data.nasa.gov/resource/eva.json (with modifications)
 input_file = open('./eva-data.json', 'r',encoding='utf-8')
 output_file = open('./eva-data.csv','w',encoding='utf-8')
 graph_file = './cumulative_eva_graph.png'
@@ -25,6 +25,7 @@ eva_df.to_csv(output_file, index=False)
 eva_df['duration_hours'] = eva_df['duration'].str.split(":").apply(lambda x: int(x[0]) + int(x[1])/60)
 eva_df['cumulative_time'] = eva_df['duration_hours'].cumsum()
 
+# Plot cumulative spacewalk duration and save to file
 plt.plot(eva_df['date'], eva_df['cumulative_time'], 'ko-')
 plt.xlabel('Year')
 plt.ylabel('Total time spent in space to date (hours)')
