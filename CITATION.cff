@@ -18,3 +18,8 @@ abstract: >-
 keywords:
   - NASA
   - Extravehicular activity
+version: 1.0.1
+identifiers:
+  - type: doi
+    value: 10.5072/zenodo.194392
+date-released: 2025-04-04
